@@ -17,10 +17,10 @@
       <h1>Lets have fun with JQuery!</h1>
       <p>Press the buttons...</p>
       <p>
-        <a id="btn1" class="btn btn-primary btn-lg" href="#" role="button">#btn1</a>
-        <a id="btn2" class="btn btn-primary btn-lg" href="#" role="button">#btn2</a>
-        <a id="btn3" class="btn btn-primary btn-lg" href="#" role="button">#btn3</a>
-        <a id="btn4" class="btn btn-primary btn-lg" href="#" role="button">#btn4</a>
+        <a class="btn btn-primary btn-lg panel-button" href="#" role="button" data-panelid="panel1">#btn1</a>
+        <a class="btn btn-primary btn-lg panel-button" href="#" role="button" data-panelid="panel2">#btn2</a>
+        <a class="btn btn-primary btn-lg panel-button" href="#" role="button" data-panelid="panel3">#btn3</a>
+        <a class="btn btn-primary btn-lg panel-button" href="#" role="button" data-panelid="panel4">#btn4</a>
       </p>
     </div>
   </div>
@@ -88,17 +88,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script type="text/javascript">
     $(document).ready(function(){
-      $('#btn1').on('mouseover', function(){
-        $('#panel1 .panel-body').html('text me');
-      });
-      $('#btn2').on('mouseover', function(){
-        $('#panel2').fadeToggle(200);
-      });
-      $('#btn3').on('mouseover', function(){
-        $('#panel3').fadeToggle(200);
-      });
-      $('#btn4').on('mouseover', function(){
-        $('#panel4').fadeToggle(200);
+      var content ="my new content text"
+      $('.panel-button').on('mouseover', function(){
+        //$('#panel1').fadeToggle(200);
+        var panelId = $(this).attr('data-panelid');
+        //alert(panelId);
+        $('#'+panelId+' .panel-body').html(content);
       });
     });
   </script>
