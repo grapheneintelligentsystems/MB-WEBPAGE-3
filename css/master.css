@@ -2,3 +2,21 @@ h1.hello{
   background: #333;
   color: yellow;
 }
+
+#list{
+  color: red;
+  font-weight: bold;
+}
+
+.delete{
+  color: blue;
+  text-decoration: line-through;
+}
+
+.special{
+  background: orange;
+}
+
+.hide{
+  dispaly: none;
+}

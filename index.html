@@ -80,6 +80,34 @@
       </a>
     </div>
 
+    <div class="row">
+      <!-- <ul id="list">
+        <li>one-star</li>
+        <li class="delete">two-star</li>
+        <li>three-star</li>
+        <li>four-star</li>
+      </ul> -->
+      <h4>Add numbers:</h4>
+      <p>
+        <input id="num-one" type="text" name="" value="">+<input id="num-two" type="text" name="" value="">
+      </p>
+      <p id="add-sum">"Sum is: "</p>
+    </div>
+
+    <div class="row">
+      <h4>Pictures</h4>
+      <ul>
+        <li><a href="#" data-img="simon-pic" id="simon">Simon Cowell</a></li>
+        <li><a href="#" data-img="bruce-pic" id="bruce">Bruce willis</a></li>
+        <li><a href="#" data-img="ben-pic" id="ben">Ben Carson</a></li>
+      </ul>
+
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Simon_Cowell_in_December_2011.jpg" alt="" class="hide" id="simon-pic" height="42" width="42">
+      <img src="https://cfmedia.deadline.com/2014/02/bruce_willis__140205103344.jpg" alt="" class="hide" id="bruce-pic" height="42" width="42">
+      <img src="http://www.tbo.com/storyimage/TB/20151021/ARTICLE/151029777/AR/0/AR-151029777.jpg" alt="" class="hide" id="ben-pic" height="42" width="42">
+
+    </div>
+
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -87,6 +115,7 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script type="text/javascript">
+  //events with jquery-3
     $(document).ready(function(){
       var content ="my new content text"
       $('.panel-button').on('mouseover', function(){
@@ -96,6 +125,57 @@
         $('#'+panelId+' .panel-body').html(content);
       });
     });
+  //events with pure javascript
+    var numOne = document.getElementById('num-one');
+    var numTwo = document.getElementById('num-two');
+    var addSum = document.getElementById('add-sum');
+
+    numOne.addEventListener("input", add);
+      //console.log("one");
+    numTwo.addEventListener("input", add);
+      //alert("two");
+      function add(){
+        var one = parseFloat(numOne.value) || 0; //convert string to number with parceFloat
+        var two = parseFloat(numTwo.value) || 0;
+        //var sum =one+two;
+        //addSum.innerHTML = "Sum is:" + sum;
+        addSum.innerHTML = "Sum is: " + (one+two);
+      };
+
+  //javascript with pictures
+  var simon = document.getElementById('simon');
+  //var simonPic = document.getElementById('simon-pic');
+  var bruce = document.getElementById('bruce');
+  //var brucePic = document.getElementById('bruce-pic');
+  var ben = document.getElementById('ben');
+  //var benPic = document.getElementById('ben-pic');
+
+  simon.addEventListener("click", hidepic);
+  bruce.addEventListener("click", hidepic);
+  ben.addEventListener("click", hidepic);
+
+  function hidepic(){
+    var allimages=document.querySelectorAll("img");
+    for (var i=0; i<allimages.length; i++){
+      allimages[i].className = "hide"
+    }
+    // if(simonPic.className == "hide"){
+    //   simonPic.className = "";
+    // }else{
+    //   simonPic.className = "hide";
+    // }
+    //console.log(this);
+    var picId = this.attributes["data-img"].value;
+    console.log(picId);
+    var pic=document.getElementById(picId);
+    console.log(pic);
+    if(pic.className == "hide"){
+      pic.className = "";
+    }else{
+      pic.className = "hide";
+    }
+  };
+
   </script>
 </body>
 </html>
