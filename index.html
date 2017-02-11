@@ -78,9 +78,47 @@
     </a>
   </div>
 
+  <ul class = "list">
+    <li>one</li>
+    <li class = "special">two</li>
+    <li>three</li>
+    <li>
+      <ul class = "sublist">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </li>
+  </ul>
+
+
+
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script>
+    $(function(){
+      //$('li').on('click', doit);
+      $('.sublist li').on('click', doit);
+
+      function doit(){
+        //$(this).removeClass('special');
+        //$(this).siblings().addClass('special');
+        //$(this).closest('.list').addClass('special');
+
+        //$(this).find('li').filter(':first').addClass('special');
+        //$(this).find('li').filter('.special').remove();
+        //$(this).find('li').eq(4).remove();
+
+        $(this).hide();
+        // if( !$(this).is('.special')){
+        //   alert('not special');
+        //  }
+      };
+
+    });
+  </script>
 </body>
 </html>
