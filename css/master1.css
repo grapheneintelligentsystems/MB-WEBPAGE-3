@@ -32,13 +32,13 @@ body {
   background: #666;
 }
 
-.tab-panels .panelm {
+.tab-panels .panel {
     display:none;
     background: #c9c9c9;
     padding: 30px;
     border-radius: 0 0 10px 10px;
 }
 
-.tab-panels .panelm.active {
+.tab-panels .panel.active {
     display:block;
 }
